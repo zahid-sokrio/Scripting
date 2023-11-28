@@ -1,0 +1,18 @@
+---------------   Purchase Sectigo Essential SSL Wildcard   ---------------
+
+## Download SSL ZIP Certificate File From Portal
+
+## ( .ca-bundle | .crt | .p7b ) ZIP File Content
+
+####  Create PFX Certificate  ####
+
+## Convert P7B to PEM
+** $ openssl pkcs7 -print_certs -in STAR.sokrio.com.p7b -out intermediate.pem
+
+## Combine CRT & PEM Files Into Single PEM File
+** $ cat STAR.sokrio.com.crt intermediate.pem > combined.pem
+
+## Convert PEM To PFX
+** $ openssl pkcs12 -export -out certificate.pfx -inkey private_key.key -in combined.pem
+
+^^^^^^ [ private_key.key will be downloaded while validating the ssl process ] ^^^^^^
